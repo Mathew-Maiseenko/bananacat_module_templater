@@ -6,6 +6,7 @@ export async function findOutputFolder(
   moduleTitle: string
 ): Promise<string | null> {
   const workingPath = path.join(processedPath, 'src');
+  console.log(workingPath);
 
   async function searchDirectory(currentPath: string): Promise<string | null> {
     try {

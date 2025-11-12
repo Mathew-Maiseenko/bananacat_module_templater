@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 
-import { __CONFIG_DIR_NAME__ } from '../../../const';
+import { __CONFIG_DIR_NAME__ } from '../../../../const';
 
 export async function getModulesNamesFromConfigDir(projectPath: string) {
   try {

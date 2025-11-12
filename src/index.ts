@@ -1,4 +1,5 @@
 import { checkProjRequiredStruct, setupCLI } from './lib/initial';
+import { outputProcessedFileSystemToUser } from './lib/utils/output/outputProcessedFileSystemToUser/outputProcessedFileSystemToUser';
 import { getModulesNamesFromConfigDir } from './lib/utils/process/getModulesListFromConfigDir/getModulesListFromConfigDir';
 import { processModuleTemplate } from './lib/utils/process/processModuleTemplate/processModuleTemplate';
 
@@ -23,10 +24,17 @@ async function main() {
     process.exit(1);
   }
 
-  const processedFileSystem = processModuleTemplate(
+  const processedFileSystemSchema = await processModuleTemplate(
     path,
     moduleTypeName,
     variables
+  );
+
+  outputProcessedFileSystemToUser(
+    processedFileSystemSchema,
+    path,
+    moduleTitle,
+    moduleTypeName
   );
 }
 
